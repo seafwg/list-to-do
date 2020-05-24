@@ -1,12 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
+import Add from './Add'
 import List from './List'
-import Search from './Search'
+import Task from './Task'
 
-function Index() {
+const Index = () => {
+  let [flag, setFlag] = useState(0);
+
+  const addTasksFn = () => {
+    setFlag(++flag);
+  }
   return (
     <div>
-      <Search></Search>
-      <List></List>
+      <Add addTasksFn={addTasksFn}></Add>
+      <List flag={flag}></List>
+      {/* <Task flag={flag}></Task> */}
     </div>
   )
 }
